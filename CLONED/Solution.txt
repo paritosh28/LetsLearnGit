@@ -1,0 +1,137 @@
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (master)
+$ git init
+Initialized empty Git repository in C:/Users/parit/GITTASK/.git/
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (master)
+$ git checkout -b Dev
+Switched to a new branch 'Dev'
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Dev)
+$ git add first.txt
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Dev)
+$ git commit -m "Dev Commit"
+[Dev (root-commit) fd9ac36] Dev Commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first.txt
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Dev)
+$ git checkout -b Test
+Switched to a new branch 'Test'
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Test)
+$ git add two.txt
+fatal: pathspec 'two.txt' did not match any files
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Test)
+$ git add second.txt
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Test)
+$ git add third.txt
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Test)
+$ git commit -m "Test Commit"
+[Test 1e24350] Test Commit
+ 2 files changed, 2 insertions(+)
+ create mode 100644 second.txt
+ create mode 100644 third.txt
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Test)
+$ git log
+commit 1e24350437cbf2cbb838c45e6de7cb89bfd96219 (HEAD -> Test)
+Author: Paritosh Dhotre <paritosh.dhotre@neosoftmail.com>
+Date:   Fri Jul 23 16:40:07 2021 +0530
+
+    Test Commit
+
+commit fd9ac369b537c564c3895d660aeb16d0fecce4e6 (Dev)
+Author: Paritosh Dhotre <paritosh.dhotre@neosoftmail.com>
+Date:   Fri Jul 23 16:38:41 2021 +0530
+
+    Dev Commit
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Test)
+$ git branch
+  Dev
+* Test
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Test)
+$ git checkout Dev
+Switched to branch 'Dev'
+M       first.txt
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Dev)
+$ git status
+On branch Dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   first.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Dev)
+$ git diff
+diff --git a/first.txt b/first.txt
+index 5ab2f8a..34559a1 100644
+--- a/first.txt
++++ b/first.txt
+@@ -1 +1,2 @@
+-Hello
+\ No newline at end of file
++Hello
++Change one
+\ No newline at end of file
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Dev)
+$ git add first.txt
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Dev)
+$ git status
+On branch Dev
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   first.txt
+
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Dev)
+$ git commit -m "Dev Commit 2"
+[Dev f361fca] Dev Commit 2
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (Dev)
+$ git checkout -b master
+Switched to a new branch 'master'
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (master)
+$ git merge Dev
+Already up to date.
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (master)
+$ git merge Test
+Merge made by the 'recursive' strategy.
+ second.txt | 1 +
+ third.txt  | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 second.txt
+ create mode 100644 third.txt
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (master)
+$ git remote add origin https://github.com/paritosh28/GIT-ASSIGNMENT.git
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (master)
+$ git push -u origin master
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (12/12), 1.04 KiB | 265.00 KiB/s, done.
+Total 12 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/paritosh28/GIT-ASSIGNMENT.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+parit@DESKTOP-NGUC6MV MINGW64 ~/GITTASK (master)
+$
